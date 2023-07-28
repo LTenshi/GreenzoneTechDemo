@@ -1,35 +1,46 @@
 <template>
 	<div class="about">
-		<v-app-bar color="deep-purple" dark>
+		<!--Quick fix for the title not appearing.-->
+		<v-app-bar color="deep-purple" dense dark>
 			<v-app-bar-title> Todo List </v-app-bar-title>
 			<v-spacer />
 		</v-app-bar>
+		{{ todoToAdd }}
+		<ToDoItemCard></ToDoItemCard>
 	</div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import ToDoItemCard from '../components/ToDoItemCrad.vue';
-import store, { Todo } from '@/store';
+import ToDoItemCard from '../components/ToDoItemCard.vue';
+import { Todo } from '@/store/interfaces';
+import store from '@/store';
 
-@Component({})
-export default class HomeView extends Vue {
-	public todoToAdd: Todo = {
-		title: '',
-		description: '',
-		id: 0,
-		isCompleted: false,
-		imageUrl: '',
-	};
+import { defineComponent } from 'vue';
 
-	isFormValid = false;
-
-	public addToDoItem(): void {
-		if (!this.isFormValid) {
-			return;
-		}
-	}
-}
+//Removed the @Component syntax as it is deprecated in the official docs https://class-component.vuejs.org
+//We could even go composition api if we'd like, though since this is pre-vue 2.7 we'd need a plugin https://github.com/vuejs/composition-api
+export default defineComponent({
+	components: { ToDoItemCard },
+	data: () => {
+		return {
+			todoToAdd: {
+				title: '',
+				description: '',
+				id: 0,
+				isCompleted: false,
+				imageUrl: '',
+			} as Todo,
+			isFormValid: false,
+		};
+	},
+	methods: {
+		addToDoItem(): void {
+			if (!this.isFormValid) {
+				return;
+			}
+		},
+	},
+});
 </script>
 
 <style lang="scss"></style>

@@ -5,13 +5,17 @@
 </template>
 
 <script lang="ts">
-import { Todo } from '@/store';
-import { Vue, Prop, Component } from 'vue-property-decorator';
+import { Todo } from '@/store/interfaces';
+import { defineComponent } from 'vue';
 
-@Component({})
-export default class ToDoItemCard extends Vue {
-	toggleStatus(): void {}
-}
+//Refer to the comment in HomeView.vue as to why this is no longer an @component
+export default defineComponent({
+	methods: {
+		toggleStatus(): void {
+			return;
+		},
+	},
+});
 </script>
 
 <style lang="scss"></style>
