@@ -22,6 +22,7 @@
 <script lang="ts">
 import store from '@/store';
 import { ITodo } from '@/store/interfaces';
+import storeConstants from '@/store/storeConstants';
 import { defineComponent } from 'vue';
 
 //Refer to the comment in HomeView.vue as to why this is no longer an @component
@@ -45,7 +46,10 @@ export default defineComponent({
 			return;
 		},
 		switchCompletion(): void {
-			store.dispatch('switchTodoCompletion', this.todo.id);
+			store.dispatch(
+				storeConstants.actions.SWITCH_TODO_COMPLETION,
+				this.todo.id
+			);
 		},
 	},
 });

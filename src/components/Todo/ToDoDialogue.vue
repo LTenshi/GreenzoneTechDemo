@@ -33,6 +33,7 @@ import { InputValidationRule, InputValidationRules } from 'vuetify';
 import { defineComponent } from 'vue';
 import { ITodo } from '@/store/interfaces';
 import store from '@/store';
+import storeConstants from '@/store/storeConstants';
 
 export default defineComponent({
 	data: function () {
@@ -53,8 +54,8 @@ export default defineComponent({
 			const ruleEmpty: InputValidationRule = (value) =>
 				!!value || 'Title is required';
 			const ruleDuplication: InputValidationRule = (value) =>
-				!store.getters.isTitleDuplicated(value) || 'Title must be unique';
-
+				!store.getters[storeConstants.getters.IS_TITLE_DUPLICATED](value) ||
+				'Title must be unique';
 			const rules: InputValidationRules = [ruleEmpty, ruleDuplication];
 
 			return rules;
@@ -70,7 +71,7 @@ export default defineComponent({
 			//Create a copy of the object, otherwise we get unwanted reactivity
 			let payload = {} as ITodo;
 			Object.assign(payload, this.todoToAdd);
-			store.dispatch('addToDo', payload);
+			store.dispatch(storeConstants.actions.ADD_TODO, payload);
 
 			//Reset form
 			const form = this.$refs.todoForm as HTMLFormElement;
