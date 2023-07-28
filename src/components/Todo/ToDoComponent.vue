@@ -46,6 +46,8 @@ export default defineComponent({
 		},
 	},
 	computed: {
+		//Filtering out to their respective arrays
+		//Having an array for both completed and not completed is possible in store as an another approach
 		notDoneTodos(): Array<ITodo> {
 			return this.todos.filter((todo) => !todo.isCompleted) || [];
 		},

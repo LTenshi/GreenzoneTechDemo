@@ -1,7 +1,7 @@
 <template>
 	<div class="about">
-		<!--Quick fix for the title not appearing.-->
-		<v-app-bar color="deep-purple" dense dark>
+		<!--Quick fix for the title not appearing-->
+		<v-app-bar color="secondary" dense dark>
 			<v-app-bar-title> Todo List </v-app-bar-title>
 			<v-spacer />
 		</v-app-bar>
