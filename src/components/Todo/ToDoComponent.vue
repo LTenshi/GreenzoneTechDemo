@@ -1,6 +1,6 @@
 <template>
 	<v-card>
-		<v-card-title>Todos</v-card-title>
+		<v-card-title>Todos Component</v-card-title>
 		<v-card-text>
 			<v-row>
 				<v-col>
@@ -8,7 +8,22 @@
 				</v-col>
 			</v-row>
 			<v-row>
-				<v-col v-for="todo in todos" :key="todo.id" cols="3">
+				<v-col>
+					<h2>Active</h2>
+				</v-col>
+			</v-row>
+			<v-row>
+				<v-col v-for="todo in notDoneTodos" :key="todo.id" cols="3">
+					<to-do-item-card :todo="todo" />
+				</v-col>
+			</v-row>
+			<v-row>
+				<v-col>
+					<h2>Completed</h2>
+				</v-col>
+			</v-row>
+			<v-row>
+				<v-col v-for="todo in doneTodos" :key="todo.id" cols="3">
 					<to-do-item-card :todo="todo" />
 				</v-col>
 			</v-row>
@@ -28,6 +43,14 @@ export default defineComponent({
 		todos: {
 			type: Array as () => Array<ITodo>,
 			default: () => [],
+		},
+	},
+	computed: {
+		notDoneTodos(): Array<ITodo> {
+			return this.todos.filter((todo) => !todo.isCompleted) || [];
+		},
+		doneTodos(): Array<ITodo> {
+			return this.todos.filter((todo) => !!todo.isCompleted) || [];
 		},
 	},
 });
