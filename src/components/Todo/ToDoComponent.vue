@@ -58,9 +58,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-.dialogue-card-text {
-	display: flex;
-	flex-direction: column;
-}
-</style>
+<style lang="scss"></style>
