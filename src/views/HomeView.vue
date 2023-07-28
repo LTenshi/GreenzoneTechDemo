@@ -16,7 +16,6 @@
 </template>
 
 <script lang="ts">
-import { ITodo } from '@/store/interfaces';
 import { mapState } from 'vuex';
 import { defineComponent } from 'vue';
 import ToDoComponent from '@/components/Todo/ToDoComponent.vue';
@@ -25,27 +24,8 @@ import ToDoComponent from '@/components/Todo/ToDoComponent.vue';
 //We could even go composition api if we'd like, though since this is pre-vue 2.7 we'd need a plugin https://github.com/vuejs/composition-api
 export default defineComponent({
 	components: { ToDoComponent },
-	data: () => {
-		return {
-			todoToAdd: {
-				title: '',
-				description: '',
-				id: 0,
-				isCompleted: false,
-				imageUrl: '',
-			} as ITodo,
-			isFormValid: false,
-		};
-	},
 	computed: {
 		...mapState(['todos']),
-	},
-	methods: {
-		addToDoItem(): void {
-			if (!this.isFormValid) {
-				return;
-			}
-		},
 	},
 });
 </script>

@@ -3,6 +3,11 @@
 		<v-card-title>Todos</v-card-title>
 		<v-card-text>
 			<v-row>
+				<v-col>
+					<to-do-create />
+				</v-col>
+			</v-row>
+			<v-row>
 				<v-col v-for="todo in todos" :key="todo.id" cols="3">
 					<to-do-item-card :todo="todo" />
 				</v-col>
@@ -14,11 +19,11 @@
 <script lang="ts">
 import { ITodo } from '@/store/interfaces';
 import { defineComponent } from 'vue';
-import { Store } from 'vuex';
 import ToDoItemCard from './ToDoItemCard.vue';
+import ToDoCreate from './ToDoCreate.vue';
 
 export default defineComponent({
-	components: { ToDoItemCard },
+	components: { ToDoItemCard, ToDoCreate },
 	props: {
 		todos: {
 			type: Array as () => Array<ITodo>,
@@ -28,4 +33,9 @@ export default defineComponent({
 });
 </script>
 
-<style></style>
+<style lang="scss">
+.dialogue-card-text {
+	display: flex;
+	flex-direction: column;
+}
+</style>

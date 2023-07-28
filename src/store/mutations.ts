@@ -3,6 +3,8 @@ import { IState } from './state';
 
 export default {
 	addToDo(state: IState, todo: ITodo) {
+		todo.id = state.nextId;
+		state.nextId++;
 		state.todos.push(todo);
 	},
 	switchTodoCompletion(state: IState, id: number) {
