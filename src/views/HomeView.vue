@@ -5,22 +5,26 @@
 			<v-app-bar-title> Todo List </v-app-bar-title>
 			<v-spacer />
 		</v-app-bar>
-		{{ todoToAdd }}
-		<ToDoItemCard></ToDoItemCard>
+		<v-container>
+			<v-row>
+				<v-col>
+					<ToDoComponent :todos="todos" />
+				</v-col>
+			</v-row>
+		</v-container>
 	</div>
 </template>
 
 <script lang="ts">
-import ToDoItemCard from '../components/ToDoItemCard.vue';
-import { Todo } from '@/store/interfaces';
-import store from '@/store';
-
+import { ITodo } from '@/store/interfaces';
+import { mapState } from 'vuex';
 import { defineComponent } from 'vue';
+import ToDoComponent from '@/components/Todo/ToDoComponent.vue';
 
 //Removed the @Component syntax as it is deprecated in the official docs https://class-component.vuejs.org
 //We could even go composition api if we'd like, though since this is pre-vue 2.7 we'd need a plugin https://github.com/vuejs/composition-api
 export default defineComponent({
-	components: { ToDoItemCard },
+	components: { ToDoComponent },
 	data: () => {
 		return {
 			todoToAdd: {
@@ -29,9 +33,12 @@ export default defineComponent({
 				id: 0,
 				isCompleted: false,
 				imageUrl: '',
-			} as Todo,
+			} as ITodo,
 			isFormValid: false,
 		};
+	},
+	computed: {
+		...mapState(['todos']),
 	},
 	methods: {
 		addToDoItem(): void {

@@ -1,7 +1,7 @@
 //One place to rule all of the interfaces
 
 //Store: Default
-export interface Todo {
+export interface ITodo {
 	title: string;
 	description: string;
 	id: number;
