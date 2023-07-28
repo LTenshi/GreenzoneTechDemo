@@ -7,6 +7,10 @@
 				<v-btn :value="true">Api</v-btn>
 			</v-btn-toggle>
 
+			<!--
+				This could be broken down into further 2 files, but since the file isn't too big I'll keep it here
+				I found there were cases in the codebases I worked with where too much granurality slows down dev speed
+			-->
 			<div v-if="!isApiMode" class="dialogue-card-form-container">
 				<v-form ref="todoForm" v-model="isFormInvalid">
 					<v-text-field
@@ -41,7 +45,7 @@
 				<v-text-field
 					type="number"
 					label="Data number of todo"
-					:min="0"
+					:min="1"
 					v-model="selectedApiNumber"
 				/>
 				<div style="align-self: end">
@@ -77,7 +81,7 @@ export default defineComponent({
 			isFormInvalid: false,
 			isApiMode: false,
 			isSnackbarVisible: false,
-			selectedApiNumber: 0,
+			selectedApiNumber: 1,
 			errorText: '',
 		};
 	},

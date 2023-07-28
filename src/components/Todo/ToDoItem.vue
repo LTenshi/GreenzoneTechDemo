@@ -1,22 +1,25 @@
 <template>
-	<div class="to-do-card" :id="`todo-${todo.id}`">
-		<v-card class="item-card">
-			<v-card-title>
-				<v-icon :color="completionColor" @click="switchCompletion" class="mr-2">
-					{{ completionIcon }}
-				</v-icon>
-				{{ todo.title }}
-			</v-card-title>
-			<v-card-text>
-				<div>
-					{{ todo.description }}
-				</div>
-				<div>
-					<img :src="todo.imageUrl" style="width: 100%" />
-				</div>
-			</v-card-text>
-		</v-card>
-	</div>
+	<v-expansion-panel>
+		<v-expansion-panel-header>
+			<v-icon
+				:color="completionColor"
+				@click="switchCompletion"
+				style="flex: none"
+				class="pr-2"
+			>
+				{{ completionIcon }}
+			</v-icon>
+			{{ todo.title }}
+		</v-expansion-panel-header>
+		<v-expansion-panel-content>
+			<div>
+				{{ todo.description }}
+			</div>
+			<div>
+				<img :src="todo.imageUrl" style="width: 100%" />
+			</div>
+		</v-expansion-panel-content>
+	</v-expansion-panel>
 </template>
 
 <script lang="ts">
@@ -42,9 +45,6 @@ export default defineComponent({
 		},
 	},
 	methods: {
-		toggleStatus(): void {
-			return;
-		},
 		switchCompletion(): void {
 			store.dispatch(
 				storeConstants.actions.SWITCH_TODO_COMPLETION,
