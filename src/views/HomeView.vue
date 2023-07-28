@@ -8,6 +8,7 @@
 		<v-container>
 			<v-row>
 				<v-col>
+					<!--We can now reuse this component somewhere else with different todos-->
 					<ToDoComponent :todos="todos" />
 				</v-col>
 			</v-row>

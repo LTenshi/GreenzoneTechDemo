@@ -29,7 +29,7 @@
 						accept="image/png, image/jpeg"
 					/>
 				</v-form>
-				<div style="align-self: end">
+				<div class="decision-handler">
 					<v-btn class="mr-2" @click="closeDialog" color="error">Cancel</v-btn>
 					<v-btn
 						:disabled="!isFormInvalid"
@@ -48,7 +48,7 @@
 					:min="1"
 					v-model="selectedApiNumber"
 				/>
-				<div style="align-self: end">
+				<div class="decision-handler">
 					<v-btn class="mr-2" @click="closeDialog" color="error">Cancel</v-btn>
 					<v-btn @click="addApiTodoItem" color="primary"> Save </v-btn>
 				</div>
@@ -99,6 +99,10 @@ export default defineComponent({
 		},
 	},
 	methods: {
+		//There are quite a few methods here, one pattern I saw moved data/methods/computes/watches to their own files.
+		//I keep an arbitiary number of 500 +/- 100 for max amount of lines in a vue file.
+		//I find that's often more of a sweep under the rug move. Means the component is getting ultra bloated and should be broken down instead.
+		//I think there are definetly cases where a separate file is a good idea e.g. large clientside algorithms if you definitely can't do them in API
 		closeDialog(): void {
 			this.$emit('closeDialog');
 		},
@@ -162,5 +166,9 @@ export default defineComponent({
 .dialogue-card-form-container {
 	display: flex;
 	flex-direction: column;
+}
+
+.decision-handler {
+	align-self: end;
 }
 </style>

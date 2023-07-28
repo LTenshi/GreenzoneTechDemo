@@ -1,3 +1,4 @@
+//This prevents accidental misspelings when calling existing store actions/getters/mutations via dispatch or commit
 export default {
 	getters: {
 		IS_TITLE_DUPLICATED: 'isTitleDuplicated',

@@ -1,6 +1,10 @@
 <template>
 	<v-expansion-panel>
 		<v-expansion-panel-header>
+			<!--
+				There are cases where I inline the style. Like in this case, where it's only 1 component utilising 1 css property.
+				It can be moved to a class but is it really necessary to bloat the file with 3 line css classes?
+			-->
 			<v-icon
 				:color="completionColor"
 				@click="switchCompletion"
@@ -37,6 +41,7 @@ export default defineComponent({
 		},
 	},
 	computed: {
+		//Simple ternary operations to pick between 2 options
 		completionIcon(): string {
 			return this.todo.isCompleted ? 'mdi-check-circle' : 'mdi-close-circle';
 		},
@@ -45,6 +50,7 @@ export default defineComponent({
 		},
 	},
 	methods: {
+		//Passing an id as opposed to the whole object
 		switchCompletion(): void {
 			store.dispatch(
 				storeConstants.actions.SWITCH_TODO_COMPLETION,

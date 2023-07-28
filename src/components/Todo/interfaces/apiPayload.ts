@@ -1,5 +1,6 @@
 import { ITodo } from '@/store/interfaces';
 
+//We'll cast the payload to this interface
 export interface IApiPayload {
 	userId: number;
 	id: number;
