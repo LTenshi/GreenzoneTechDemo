@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo Dialogue Tests Snapshot Test 1`] = `
+<div
+  class="v-card v-sheet theme--light"
+>
+  <div
+    class="v-card__title"
+  >
+    Add todo dialogue
+  </div>
+   
+  <div
+    class="v-card__text"
+  >
+    <div
+      class="v-item-group theme--light v-btn-toggle v-btn-toggle--dense"
+      id="btn-mode-toggle-group"
+    >
+      <button
+        class="v-btn v-item--active v-btn--active v-btn--is-elevated v-btn--has-bg theme--light v-size--default"
+        id="btn-toggle-client"
+        type="button"
+        value="false"
+      >
+        <span
+          class="v-btn__content"
+        >
+          Client
+        </span>
+      </button>
+       
+      <button
+        class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"
+        id="btn-toggle-api"
+        type="button"
+        value="true"
+      >
+        <span
+          class="v-btn__content"
+        >
+          Api
+        </span>
+      </button>
+    </div>
+     
+    <div
+      class="dialogue-card-form-container"
+      id="container-client-form"
+    >
+      <form
+        class="v-form"
+        novalidate="novalidate"
+      >
+        <div
+          class="v-input theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-9"
+                  style="right: 0px; position: absolute;"
+                >
+                  *Title
+                </label>
+                <input
+                  id="input-9"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="v-input v-textarea theme--light v-text-field"
+        >
+          <div
+            class="v-input__control"
+          >
+            <div
+              class="v-input__slot"
+            >
+              <div
+                class="v-text-field__slot"
+              >
+                <label
+                  class="v-label theme--light"
+                  for="input-12"
+                  style="right: 0px; position: absolute;"
+                >
+                  Description
+                </label>
+                <textarea
+                  id="input-12"
+                  rows="5"
+                />
+              </div>
+            </div>
+            <div
+              class="v-text-field__details"
+            >
+              <div
+                class="v-messages theme--light"
+              >
+                <transition-group-stub
+                  class="v-messages__wrapper"
+                  name="message-transition"
+                  tag="div"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <label
+          for="file"
+        >
+          Upload an image: 
+        </label>
+         
+        <input
+          accept="image/png, image/jpeg"
+          class="mt-2 mb-2"
+          id="imageInput"
+          name="file"
+          type="file"
+        />
+      </form>
+       
+      <div
+        class="decision-handler"
+      >
+        <button
+          class="mr-2 v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default error"
+          type="button"
+        >
+          <span
+            class="v-btn__content"
+          >
+            Cancel
+          </span>
+        </button>
+         
+        <button
+          class="v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default"
+          disabled="disabled"
+          type="button"
+        >
+          <span
+            class="v-btn__content"
+          >
+            
+					Save
+				
+          </span>
+        </button>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+   
+  <div
+    class="v-snack v-snack--bottom v-snack--has-background"
+  >
+    <transition-stub
+      name="v-snack-transition"
+    >
+      <div
+        class="v-snack__wrapper v-sheet theme--dark error"
+        style="display: none;"
+      >
+        <div
+          aria-live="polite"
+          class="v-snack__content"
+          role="status"
+        >
+          
+		
+	
+        </div>
+        <div
+          class="v-snack__action "
+        />
+      </div>
+    </transition-stub>
+  </div>
+</div>
+`;

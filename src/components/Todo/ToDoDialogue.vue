@@ -2,16 +2,20 @@
 	<v-card>
 		<v-card-title>Add todo dialogue</v-card-title>
 		<v-card-text>
-			<v-btn-toggle v-model="isApiMode" dense>
-				<v-btn :value="false">Client</v-btn>
-				<v-btn :value="true">Api</v-btn>
+			<v-btn-toggle id="btn-mode-toggle-group" v-model="isApiMode" dense>
+				<v-btn id="btn-toggle-client" :value="false">Client</v-btn>
+				<v-btn id="btn-toggle-api" :value="true">Api</v-btn>
 			</v-btn-toggle>
 
 			<!--
 				This could be broken down into further 2 files, but since the file isn't too big I'll keep it here
 				I found there were cases in the codebases I worked with where too much granurality slows down dev speed
 			-->
-			<div v-if="!isApiMode" class="dialogue-card-form-container">
+			<div
+				id="container-client-form"
+				v-if="!isApiMode"
+				class="dialogue-card-form-container"
+			>
 				<v-form ref="todoForm" v-model="isFormInvalid">
 					<v-text-field
 						label="*Title"
@@ -41,7 +45,11 @@
 				</div>
 			</div>
 
-			<div v-if="isApiMode" class="dialogue-card-form-container">
+			<div
+				id="container-api-form"
+				v-if="isApiMode"
+				class="dialogue-card-form-container"
+			>
 				<v-text-field
 					type="number"
 					label="Data number of todo"

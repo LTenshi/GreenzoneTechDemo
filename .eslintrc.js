@@ -17,6 +17,8 @@ module.exports = {
 		// '@vue/prettier/@typescript-eslint',
 
 		'plugin:prettier/recommended',
+
+		'plugin:jest/recommended',
 	],
 
 	parserOptions: {
@@ -52,6 +54,17 @@ module.exports = {
 
 			env: {
 				jest: true,
+			},
+
+			rules: {
+				'jest/expect-expect': [
+					'error',
+					{
+						//Less repetition when we can create our own expect functions
+						assertFunctionNames: ['expect', 'expect*'],
+						additionalTestBlockFunctions: [],
+					},
+				],
 			},
 		},
 	],
